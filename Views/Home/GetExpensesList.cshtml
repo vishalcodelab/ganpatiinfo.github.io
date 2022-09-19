@@ -1,0 +1,57 @@
+﻿@model IEnumerable<GanpatiBappa.Models.ExpenseModel>
+
+@{
+    ViewBag.Title = "GetExpensesList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<p style="text-align:center; margin:10px 0; color:#000; font-weight:600; text-transform:capitalize; font-size:18px;">Expenses Details</p>
+<table class="table">
+    <tr>
+        <th>
+            Sr.No
+        </th>
+        <th>
+            Expense For
+        </th>
+        <th>
+            Expense Amount
+        </th>
+        <th>
+            Expense By
+        </th>
+        <th>
+            Expense Date
+        </th>
+
+        <th>Actions</th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.e_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.expenseFor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.expenseAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.expenseBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.expenseDate)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |                
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <link href="~/Content/HomeStyle.css" rel="stylesheet" />
+    <link href="~/Content/InputesStyle.css" rel="stylesheet" />
+    <link href="~/Content/MobileViewStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="main_container">
+        <header class="displayFlex headerArea">
+            <div class="logoSection">
+                <div class="imagelogo">
+
+                    <img src="~/Content/Images/png-transparent-ganesha-mahadeva-deity-drawing-ganesha-text-logo-flower-thumbnail.png" />
+
+                </div>
+                <h2>Ganpati <span>Bappa</span></h2>
+            </div>
+            <div class="menusSection">
+                <ul class="displayFlex">
+                    <li><a href="/Home/Index">Home</a></li>
+                    <li id="getDataList"><a href="/Home/GetDonationList">Donation Data</a></li>
+                    <li><a href="/Home/GetExpensesList">Expense Data</a></li>
+                    @*<li><a href="/Donation/Index" id="addDonation">Add Donation</a></li>
+                    <li><a href="/Expense/Index" id="addExpense">Add Expense</a></li>*@
+                    <li><a href="/Home/GetMembersList">Member List</a></li>
+                    @*<li><a href="">Total Summary</a></li>*@
+                </ul>
+            </div>
+            <div class="loginSection">
+                <button><a href="/Home/Login"> Login</a></button>
+                @*<button id="logout">Logout</button>*@
+                @*<select name="" id="">
+                    <option value="">choose Year</option>
+                    <option value="">2022</option>
+                    <option value="">2023</option>
+                    <option value="">2024</option>
+                    <option value="">2025</option>
+                </select>*@
+            </div>
+        </header>
+
+        <div class="container body-content">
+            @RenderBody()
+            <footer>
+                <h4>Copyright 2022 Develop by Vishal & Love</h4>
+            </footer>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
+<script>
+    debugger;
+    $(window).resize(function () {
+        
+        $(window).height(); // New height
+        $(window).width(); // New width
+        if ($(window).width() < 450) {
+            $(".leftSection").css({
+                "width": "100%",
+                "height":"38%;"
+                
+            })
+        }
+        else {
+
+        }
+    });
+</script>

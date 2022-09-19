@@ -1,0 +1,110 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Template</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style.css">
+    <link href="~/Content/admin_home.css" rel="stylesheet" />
+    <link href="~/Content/InputesStyle.css" rel="stylesheet" />
+    <link href="~/Content/MobileViewStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="main_container">
+        <section class="leftSection">
+            <div class="logoSection">
+                <img src="Images/png-transparent-ganesha-mahadeva-deity-drawing-ganesha-text-logo-flower-thumbnail.png" alt="">
+                <p>Ganpati <span>Bappa</span></p>
+            </div>
+            <div class="dashboardSection">
+                <h2>Dashboard</h2>
+                <ul>
+                    <li style="color:greenyellow;"><a href="/Admin/Index">Home</a></li>
+                    <li class="accordion">Expenses
+                        <ul class="panel">
+                            <li><a href="/Admin/AddExpenses">Add Expenses</a></li>
+                            <li><a href="/Admin/GetExpenses"> Expenses List</a></li>
+                        </ul>
+                    </li>
+                    <li class="accordion">
+                        Donations
+                        <ul class="panel">
+                            <li><a href="/Admin/AddDonations">Add Donations</a></li>
+                            <li><a href="/Admin/GetDonations"> Donation List</a></li>
+                        </ul>
+                    </li>
+                    <li class="accordion">
+                        Members
+                        <ul class="panel">
+                            <li><a href="/Admin/AddMembers">Add Members</a></li>
+                            <li><a href="/Admin/GetMembers"> Members List</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="rightSection">
+            <header>
+                <div class="HleftSection">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                    <input type="search" name="" id="search" placeholder="search here...">
+                </div>
+                <div class="HrightSection">
+                    <span class="material-symbols-outlined">
+                        notifications
+                    </span>
+                    <span class="material-symbols-outlined">
+                        chat
+                    </span>
+                    <a href="/Home/Logout"><span class="material-symbols-outlined">
+                                                    logout
+                                                </span></a>
+                    
+                    <div class="adminProfileSection">
+                        @if (Session["username"] != null)
+                        {
+                            var userName = Session["username"].ToString();
+                            <p>Hi ,@userName</p>
+                        }
+
+                        <div class="adminProfile">
+
+                        </div>
+                    </div>
+
+                </div>
+            </header>
+            <div class="adminDetails">
+                @RenderBody()
+                <div class="adminRightSection">
+
+                </div>
+            </div>
+
+    </div>
+</body>
+</html>
+<script>
+    $(".panel").css("display", "none")
+    var isHide = true;
+
+    $(".accordion").click(function () {
+        if (isHide) {
+            $(this).children().css("display", "block");
+            isHide = false;
+        }
+        else {
+            $(this).children().css("display", "none");
+            isHide = true;
+        }
+    })
+</script>

@@ -1,0 +1,43 @@
+﻿@model GanpatiBappa.Models.ViewModel.vmDashboard
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    
+}
+<section class="adminLeftSection">
+    <section class="amountManage">
+        <div class="box1 box">
+            <p>Total Donations</p>
+            <p id="totalDonations">Rs. @Model.TotalDonations</p>
+        </div>
+        <div class="box2 box">
+            <p>Total Expenses</p>
+            <p id="totalExpenses">Rs. @Model.TotalExpenses </p>
+        </div>
+        <div class="box3 box">
+            <p>Total Save Amount</p>
+            <p id="totalSaveAmount">Rs. @Model.TotalSaveAmount</p>
+        </div>
+    </section>
+    <section class="otherDetais1">
+        <div class="box1 box">
+            <p>Total Donaters</p>
+            <p id="totalDonater">@Model.TotalDonaters</p>
+        </div>
+        <div class="box2 box">
+            <p>Highest Donater </p>
+            <p style=" margin-bottom: 4px; color: darkgreen; font-weight: 500;">@Model.highestdonateName</p>
+            <p id="highestDonaterby">Rs. @Model.highestdonateAmount</p>
+        </div>
+        <div class="box3 box">
+            <p class="paymentBy">Payment By</p>
+            <div class="onlineAmount">
+                <p>Online Amount</p>
+                <p id="onlinePayement">Rs. @Model.TotalByOnline</p>
+            </div>
+            <div class="offlineAmount">
+                <p>Offline Amount</p>
+                <p id="offlineAmount">Rs. @Model.TotalByCash</p>
+            </div>
+        </div>
+    </section>
+</section>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<GanpatiBappa.Models.MemberModel>
+
+@{
+    ViewBag.Title = "GetMembersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p style="text-align:center; margin:10px 0; color:#000; font-weight:600; text-transform:capitalize; font-size:18px;">Members Details</p>
+<table class="table">
+    <tr>
+        <th>
+            Sr.No
+        </th>
+        <th>
+            Member Name
+        </th>
+        <th>
+            Mobile No
+        </th>
+        <th>
+            Current Status
+        </th>
+        <th>
+            Member Donation
+        </th>
+        <th>
+            Member Donation Date
+        </th>
+        <th>
+            Payment By
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.memberId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.memberName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.memberMobileNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.memberCurrentStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.memberDonation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.memberDonationDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.memberPaymentBy)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |            
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

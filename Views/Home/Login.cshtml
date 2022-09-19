@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="login_container hvCenter">
+    <div class="center_login_area">
+        <div class="top_title">
+            <h2>Admin Login !!</h2>
+        </div>
+        <div class="login_fields hvCenter">
+            <div class="userName f_field">
+                <label for="">UserName</label>
+                <input type="text" name="userName" id="userName" placeholder="Enter Username..">
+            </div>
+            <div class="password f_field">
+                <label for="">Password</label>
+                <input type="text" name="password" id="password" placeholder="Enter Password">
+            </div>
+
+            <div class="loginBtn f_field">
+                <input type="button" value="Login" class="btn" id="Adminlogin" onclick="Login()">
+            </div>
+            <p id="massage"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    debugger;
+
+
+    function Login() {
+        var empObj = {
+            userName: $('#userName').val(),
+            password: $('#password').val()
+        };
+        $.ajax({
+            url: "/Home/Login",
+            data: JSON.stringify(empObj),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                debugger;
+                if (result.includes("Successfully")) {
+
+                    $("#massage").html("Login Successfull !!").css("color", "green");
+                    alert("Login Successful ! Go To Dashboard")
+                    window.location.href  = "https://localhost:44362/admin/index";
+                    $("#addDonation").show();
+                    $("#addExpense").show();
+                    $("#logout").show();
+                }
+                else {
+                    $("#massage").html("Login Failed !!").css("color", "red");
+                }
+                $('#myModal').modal('hide');
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+</script>
+

@@ -1,0 +1,63 @@
+﻿@model IEnumerable<GanpatiBappa.Models.DonationModel>
+
+@{
+    ViewBag.Title = "GetDonationList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p style="text-align:center; margin:10px 0; color:#000; font-weight:600; text-transform:capitalize; font-size:18px;">Donations Details</p>
+<table class="table">
+    <tr>
+        <th>
+            Sr.No
+        </th>
+        <th>
+            Donater Name
+        </th>
+        <th>
+            Donate Amount
+        </th>
+        <th>
+            Donation Date
+        </th>
+        <th>
+            Donation <br />Recieved<br /> By
+        </th>
+        <th>
+            Payment By
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        DateTime shortDate = item.donationDate;       
+        var shortDates = shortDate.ToString("yyyy-MM-dd");
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.d_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.donaterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.donateAmount)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.donationDate)*@
+                @shortDates
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.donationRecievedBy)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentBy)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |                
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

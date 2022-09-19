@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "AddDonations";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="login_container hvCenter">
+    <div class="center_login_area">
+        <div class="top_title">
+            <h2>Add Donation Data !!</h2>
+        </div>
+        <div class="login_fields hvCenter">
+            <div class="userName f_field">
+                <label for="">Donater Name</label>
+                <input type="text" name="donaterName" id="donaterName">
+            </div>
+            <div class="password f_field">
+                <label for="">Donate Amount</label>
+                <input type="number" name="donateAmount" id="donateAmount">
+            </div>
+            <div class="password f_field">
+                <label for="">Donation Date</label>
+                <input type="date" name="donationDate" id="donationDate">
+            </div>
+            <div class="password f_field">
+                <label for="">Donation Recieved By</label>
+                <input type="text" name="donationRecievedBy" id="donationReBy">
+            </div>
+            <div class="password f_field">
+                <label for="">Payment By</label>
+                <input type="text" name="PaymentBy" id="PaymentBy">
+            </div>
+
+            <div class="loginBtn f_field">
+                <button id="addDonationData" onclick="addDonationData()">Add Donation Data</button>
+            </div>
+            <p id="Massage"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    //Add Data Function
+    function addDonationData() {
+        debugger;
+
+        //var res = validate();
+        //if (res == false) {
+        //    return false;
+        //}
+        var donationObj = {
+            donaterName: $('#donaterName').val(),
+            donateAmount: $('#donateAmount').val(),
+            donationDate: $('#donationDate').val(),
+            donationRecievedBy: $('#donationReBy').val(),
+            PaymentBy: $('#PaymentBy').val()
+
+        };
+        $.ajax({
+            url: "/Admin/AddDonations",
+            data: JSON.stringify(donationObj),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                if (result) {
+                    $("#Massage").html("Data Added Successfully !!").css("color", "green");
+                }
+                else {
+                    $("#Massage").html("Something went Wrong!!").css("color", "red");
+                }
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+
+</script>
+

@@ -1,0 +1,300 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --leftSectionBg: #284387;
+    --rightSectionBg: #043b5c;
+    --whiteColor: #fff;
+    --box1: #fbe7ef;
+    --box2: #a3a0a9;
+    --box3: #ddd4b3;
+    --box4: #cdd1e4;
+    --box5: #ffff9f;
+}
+
+a {
+    text-decoration: none;
+    color:#fff;
+}
+
+ul {
+    list-style: none;
+}
+.width78{
+    width:78%;
+}
+
+ul li::before {
+    content: "\2022";
+    color: orange;
+    font-weight: bold;
+    display: inline-block;
+    width: 20px;
+    margin-left: -1em;
+}
+
+.main_container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.leftSection {
+    width: 20%;
+    height: 100%;
+    background-color: var(--leftSectionBg);
+    padding: 20px 20px;
+}
+
+.rightSection {
+    width: 80%;
+    height: 100%;
+    background-color: var(--rightSectionBg);
+    padding: 0px 20px;
+}
+
+.leftSection .logoSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid var(--whiteColor);
+    padding-bottom: 10px;
+}
+
+    .leftSection .logoSection img {
+        width: 10%;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .leftSection .logoSection p {
+        color: orange;
+        font-weight: 700;
+    }
+
+        .leftSection .logoSection p span {
+            color: var(--whiteColor);
+            font-weight: 500;
+        }
+
+.leftSection .dashboardSection {
+    margin: 10px 0;
+    color: var(--whiteColor);
+}
+
+    .leftSection .dashboardSection h2 {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .leftSection .dashboardSection ul {
+        list-style-position: inside;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+        .leftSection .dashboardSection ul li {
+            margin: 3px 0;
+            cursor: pointer;
+            background: darkkhaki;
+            padding: 5px;
+            border-radius: 2px;
+            margin: 10px;
+            font-weight: 500;
+        }
+    .leftSection .dashboardSection .accordion  ul{
+        margin:10px 20px;
+    }
+        .leftSection .dashboardSection .accordion ul li {
+            background: darkgoldenrod;
+            padding: 5px;
+            border-radius: 4px;
+            margin: 6px 0px;
+        }
+        /* right Section css here */
+        header {
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid white;
+            padding-bottom: 11px;
+            margin-top: 15px;
+        }
+
+.rightSection header .HleftSection {
+    height: auto;
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: 20px;
+    position: relative;
+}
+
+    .rightSection header .HleftSection input {
+        padding: 8px 0;
+        padding-left: 36px;
+        border: none;
+        outline: none;
+        width: 200px;
+        border-radius: 5px;
+        background-color: whitesmoke;
+    }
+
+    .rightSection header .HleftSection span {
+        position: absolute;
+        color: black;
+        left: 10px;
+        font-size: 19px;
+        top: 9px;
+    }
+
+.rightSection header .HrightSection {
+    height: auto;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px;
+}
+
+    .rightSection header .HrightSection span {
+        color: white;
+        margin: 0px 10px;
+    }
+
+    .rightSection header .HrightSection .adminProfileSection {
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 30px;
+    }
+
+        .rightSection header .HrightSection .adminProfileSection .adminProfile {
+            width: 30px;
+            height: 30px;
+            background-color: orange;
+            border-radius: 50%;
+            margin-left: 15px;
+            outline: 5px solid white;
+        }
+
+.rightSection .adminDetails {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+}
+
+    .rightSection .adminDetails .adminLeftSection {
+        width: 78%;
+        display: flex;
+        margin-top: 20px;
+        flex-direction: column;
+    }
+
+        .rightSection .adminDetails .adminLeftSection .otherDetais1 .box3 .paymentBy {
+            border-bottom: 3px solid blue;
+            padding: 0 20px;
+            padding-bottom: 4px;
+        }
+
+        .rightSection .adminDetails .adminLeftSection .otherDetais1 .box3 .onlineAmount,
+        .rightSection .adminDetails .adminLeftSection .otherDetais1 .box3 .offlineAmount {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            margin-top: 3px;
+        }
+
+            .rightSection .adminDetails .adminLeftSection .otherDetais1 .box3 .onlineAmount p:last-child {
+                color: green;
+            }
+
+            .rightSection .adminDetails .adminLeftSection .otherDetais1 .box3 .offlineAmount p:last-child {
+                color: red;
+            }
+        .rightSection .adminDetails .adminLeftSection .otherDetais1 .box3 {
+            background-color: #ffff9f;
+        }
+
+        .rightSection .adminDetails .adminLeftSection .otherDetais1 .box2 {
+            background-color: #2aef89d8;
+        }
+
+        .rightSection .adminDetails .adminLeftSection .otherDetais1 .box1 {
+            background-color: #ef2aa0c5;
+        }
+
+        .rightSection .adminDetails .adminLeftSection .otherDetais1 .box3 .onlineAmount p:first-child,
+        .rightSection .adminDetails .adminLeftSection .otherDetais1 .box3 .offlineAmount p:first-child {
+            font-size: 15px;
+        }
+        .rightSection .adminDetails .adminLeftSection .amountManage {
+            display:flex;
+            justify-content:space-between;
+            width:100%;
+        }
+    .rightSection .adminDetails .adminRightSection {
+        width: 20%;
+        height: 91vh;
+        background-color: #284387;
+        
+    }
+    .rightSection .adminDetails .adminLeftSection .otherDetais1 {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+        .rightSection .adminDetails .box {
+            width: 200px;
+            height: 150px;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .rightSection .adminDetails .box p:first-child {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .rightSection .adminDetails .box p:last-child {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+    .rightSection .adminDetails .box1 {
+        background-color: var(--box1);
+    }
+
+    .rightSection .adminDetails .box2 {
+        background-color: var(--box2);
+    }
+
+    .rightSection .adminDetails .box3 {
+        background-color: var(--box3);
+    }
+
+    .rightSection .adminDetails .box4 {
+        background-color: var(--box4);
+    }

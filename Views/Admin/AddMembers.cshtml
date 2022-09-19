@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "AddMembers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="login_container hvCenter">
+    <div class="center_login_area">
+        <div class="top_title">
+            <h2>Add Member Data !!</h2>
+        </div>
+        <div class="login_fields hvCenter">
+            <div class="userName f_field">
+                <label for="">Member Name</label>
+                <input type="text" name="memberName" id="memberName">
+            </div>
+            <div class="password f_field">
+                <label for="">Mobile No</label>
+                <input type="number" name="memberMobileNo" id="memberMobileNo">
+            </div>
+            <div class="password f_field">
+                <label for="">Current Status</label>
+                <input type="text" name="memberCurrentStatus" id="memberCurrentStatus">
+            </div>
+            <div class="password f_field">
+                <label for="">Member Donation </label>
+                <input type="text" name="memberDonation" id="memberDonation">
+            </div>
+            <div class="password f_field">
+                <label for="">Donation Date</label>
+                <input type="date" name="memberDonationDate" id="memberDonationDate">
+            </div>
+            <div class="password f_field">
+                <label for="">Payment By</label>
+                @*<input type="text" name="memberPaymentBy" id="memberPaymentBy">*@
+            <select id="memberPaymentBy">
+                <option>Select</option>
+                <option>Online</option>
+                <option>Offline</option>
+            </select>
+            </div>
+
+            <div class="loginBtn f_field">
+                <button id="addDonationData" onclick="addMemberData()">Add Member Data</button>
+            </div>
+            <p id="Massage"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    //Add Data Function
+    function addMemberData() {
+        debugger;
+
+        //var res = validate();
+        //if (res == false) {
+        //    return false;
+        //}
+        var memberObj = {
+            memberName: $('#memberName').val(),
+            memberMobileNo: $('#memberMobileNo').val(),
+            memberCurrentStatus: $('#memberCurrentStatus').val(),
+            memberDonation: $('#memberDonation').val(),
+            memberDonationDate: $('#memberDonationDate').val(),
+            memberPaymentBy: $('#memberPaymentBy').val()
+
+        };
+        $.ajax({
+            url: "/Admin/AddMembers",
+            data: JSON.stringify(memberObj),
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                if (result) {
+                    $("#Massage").html("Data Added Successfully !!").css("color", "green");
+                }
+                else {
+                    $("#Massage").html("Something went Wrong!!").css("color", "red");
+                }
+            },
+            error: function (errormessage) {
+                alert(errormessage.responseText);
+            }
+        });
+    }
+
+</script>
+
